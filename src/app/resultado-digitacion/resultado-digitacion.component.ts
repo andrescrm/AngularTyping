@@ -5,11 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './resultado-digitacion.component.html',
   styleUrls: ['./resultado-digitacion.component.css']
 })
-export class ResultadoDigitacionComponent implements OnInit {
+export class ResultadoDigitacionComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }

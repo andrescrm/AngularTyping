@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  contenidoDigitado = 0;
+  fuenteContenido = '';
+  longitudCaracteresDigitacion = 0;
+
+  onAciertosDigitacion(eventData) {
+    this.longitudCaracteresDigitacion = eventData;
+  }
+
+  onTextoModificado(eventData) {
+    this.fuenteContenido = eventData;
+  }
+
 }

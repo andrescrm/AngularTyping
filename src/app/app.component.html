@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Prueba de digitación</h1>
-  <app-fuente-contenido [longitudTextoDigitado]="contenidoDigitado"></app-fuente-contenido>
-  <app-digitacion-contenido></app-digitacion-contenido>
+  <app-fuente-contenido [longitudTextoDigitado]="longitudCaracteresDigitacion" (textoModificado)="onTextoModificado($event)"></app-fuente-contenido>
+  <app-digitacion-contenido (aciertosDigitacion)="onAciertosDigitacion($event)" [textoContenido]="fuenteContenido.trim()"></app-digitacion-contenido>
   <app-resultado-digitacion></app-resultado-digitacion>
 </div>
 
