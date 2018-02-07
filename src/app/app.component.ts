@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   fuenteContenido = '';
-  longitudCaracteresDigitacion = 0;
+  cantidadAciertos = 0;
 
   onAciertosDigitacion(eventData) {
-    this.longitudCaracteresDigitacion = eventData;
+    this.cantidadAciertos = eventData;
   }
 
   onTextoModificado(eventData) {

@@ -1,4 +1,5 @@
 <label>Inserte el contenido que desea utilizar en la prueba</label>
-<textarea class="form-control" rows="10" (change)="ajustarTextoContenido($event)" appResaltarTexto [longitudTexto]="longitudTextoDigitado">
+<input type="file" (change)="ajustarTextoContenido($event)">
+<div class="well well-lg" appResaltarTexto [longitudTexto]="longitudTextoDigitado">
   {{fuenteContenido}}
-</textarea>  
+</div>

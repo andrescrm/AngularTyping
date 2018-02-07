@@ -14,8 +14,13 @@ export class FuenteContenidoComponent {
   constructor() { }
 
   ajustarTextoContenido(event) {
-    this.fuenteContenido = event.target.value;
-    this.textoModificado.emit(this.fuenteContenido);
-  }
+    const lector = new FileReader();
+    let archivo:File = event.target.files[0];
 
+    lector.readAsText(archivo)
+    lector.onloadend = (e) => {
+      this.fuenteContenido = lector.result;
+      this.textoModificado.emit(this.fuenteContenido);
+    }    
+  }
 }
