@@ -17,8 +17,8 @@ export class DigitacionContenidoComponent {
 
   constructor() { }
 
-  validarCaracteres(event) {    
-    if (this.textoContenido.slice(0, this.textoDigitado.length) === this.textoDigitado) {                    
+  validarCaracteres(event) {
+    if (this.textoContenido.slice(0, this.textoDigitado.length) === this.textoDigitado) {
       this.cantidadAciertos = this.textoDigitado.length;
       this.aciertosDigitacion.emit(this.cantidadAciertos);
       this.textoAnterior = this.textoDigitado;

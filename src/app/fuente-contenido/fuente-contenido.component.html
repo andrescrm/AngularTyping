@@ -1,5 +1,9 @@
-<label>Inserte el contenido que desea utilizar en la prueba</label>
-<input type="file" (change)="ajustarTextoContenido($event)">
-<div class="well well-lg" appResaltarTexto [longitudTexto]="longitudTextoDigitado">
-  {{fuenteContenido}}
+<label>Seleccione un archivo para cargar el texto</label>
+<input type="file" accept=".txt" 
+       (change)="ajustarTextoContenido($event)">
+<label class="error" *ngIf="errorArchivo != ''">
+  {{errorArchivo}}
+</label>
+<div class="well well-lg">
+  <span class="textoResaltado">{{contenidoResaltado}}</span><span>{{contenidoSinResaltar}}</span>
 </div>
