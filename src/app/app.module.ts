@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FuenteContenidoComponent } from './fuente-contenido/fuente-contenido.component';
 import { DigitacionContenidoComponent } from './digitacion-contenido/digitacion-contenido.component';
 import { ResultadoDigitacionComponent } from './resultado-digitacion/resultado-digitacion.component';
+import { DigitacionService } from './digitacion.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { ResultadoDigitacionComponent } from './resultado-digitacion/resultado-d
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DigitacionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
