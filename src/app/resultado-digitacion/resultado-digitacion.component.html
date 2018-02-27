@@ -1,9 +1,14 @@
 <button type="button" class="btn btn-primary">
   Aciertos
-  <span class="badge badge-light">{{aciertos}}</span>
+  <span class="badge badge-light"><b>{{aciertos}}</b></span>
 </button>
 <button type="button" class="btn btn-danger">
   Errores
-  <span class="badge badge-light">{{errores}}</span>
+  <span class="badge badge-light"><b>{{errores}}</b></span>
 </button>
-<div>{{cronometro.horas}}hours {{cronometro.minutos}} minutes {{cronometro.segundos}}seconds</div>
+<span class="label label-success">
+  <span class="glyphicon glyphicon-text-background"></span> Caracteres X Minuto {{caracteresPorMinuto | number: '1.0-0'}}
+</span>
+<span class="label label-default">
+  <span class="glyphicon glyphicon-time"></span> {{cronometro.horas}} horas {{cronometro.minutos}} minutos {{cronometro.segundos}} segundos
+</span>

@@ -9,8 +9,9 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ResultadoDigitacionComponent implements OnInit {
 
-  cronometro: Tiempo;
+  cronometro: Tiempo = {horas: 0, minutos: 0, segundos: 0};
   iniciarCronometro: boolean;
+  caracteresPorMinuto = 0;
   aciertos = 0;
   errores = 0;
 
@@ -31,5 +32,13 @@ export class ResultadoDigitacionComponent implements OnInit {
     this.servicio.errores.subscribe(
       (errores) => this.errores = errores
     );
+
+    this.servicio.caracterAcertado.subscribe((caracter) => {
+      this.caracteresPorMinuto = this.servicio.calcularCaracteresPorMinuto();
+    });
+
+    this.servicio.caracterErrado.subscribe((caracter) => {
+      this.servicio.insertarSumaCaracteres(caracter);
+    });
   }
 }

@@ -34,12 +34,15 @@ export class DigitacionContenidoComponent {
       this.servicioDigitacion.Aciertos = this.cantidadAciertos;
       this.servicioDigitacion.Caracteres = this.cantidadCaracteres;
       this.textoAnterior = this.textoDigitado;
+      this.servicioDigitacion.caracterAcertado.next(event.key);
     } else {
       this.cantidadErrores = this.cantidadErrores + (this.textoDigitado.length - this.textoAnterior.length);
       this.erroresDigitacion.emit(this.cantidadErrores);
       this.servicioDigitacion.Errores = this.cantidadErrores;
       this.textoDigitado = this.textoAnterior;
+      this.servicioDigitacion.caracterErrado.next(event.key);
     }
+
     // TODO: Delete this line
     console.log('Aciertos ' + this.cantidadAciertos + ' Errores: ' + this.cantidadErrores);
   }

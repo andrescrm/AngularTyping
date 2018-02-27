@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/observable/interval';
@@ -16,11 +16,15 @@ export class DigitacionService {
 
   constructor() { }
 
-  private tiempoDigitacionSegundos: 0;
+  private tiempoDigitacionSegundos = 0;
   private cantidadAciertos = 0;
   private cantidadErrores = 0;
   private cantidadCaracteres = 0;
+  private sumaCaracteres: Map<string, number> = new Map<string, number>();
   digitacionIniciada = new Subject<boolean>();
+  caracterAcertado = new Subject<string>();
+  caracterErrado = new Subject<string>();
+  caracteresPorMinuto = new Subject<number>();
   aciertos = new Subject<number>();
   errores = new Subject<number>();
 
@@ -66,7 +70,15 @@ export class DigitacionService {
     return Observable.interval(1000).map(() => this.calcularTiempo(tiempo));
   }
 
-  caracteresPorMinuto() {
-    return this.cantidadCaracteres / (this.tiempoDigitacionSegundos / 60);
+  calcularCaracteresPorMinuto() {
+    if (!this.tiempoDigitacionSegundos) {
+      return 0;
+    }
+    return this.cantidadAciertos / (this.tiempoDigitacionSegundos / 60);
+  }
+
+  insertarSumaCaracteres(caracter: string) {
+    this.sumaCaracteres.set(caracter.toLowerCase(),
+      this.sumaCaracteres.get(caracter.toLowerCase()) ? this.sumaCaracteres.get(caracter.toLowerCase()) + 1 : 1);
   }
 }

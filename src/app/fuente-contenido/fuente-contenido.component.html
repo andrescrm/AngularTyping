@@ -1,9 +1,12 @@
-<label>Seleccione un archivo para cargar el texto</label>
-<input type="file" accept=".txt" 
-       (change)="ajustarTextoContenido($event)">
-<label class="error" *ngIf="errorArchivo != ''">
-  {{errorArchivo}}
-</label>
-<div class="well well-lg">
-  <span class="textoResaltado">{{contenidoResaltado}}</span><span>{{contenidoSinResaltar}}</span>
+<div class="panel panel-primary">
+  <div class="panel-heading"><b>Seleccione un archivo para cargar el texto</b></div>
+  <div class="panel-body">
+    <input type="file" accept=".txt" (change)="ajustarTextoContenido($event)">
+    <label class="error" *ngIf="errorArchivo != ''">
+      {{errorArchivo}}
+    </label><br />
+    <div class="well well-lg">
+      <span class="textoResaltado">{{contenidoResaltado}}</span><span>{{contenidoSinResaltar}}</span>
+    </div>
+  </div>
 </div>

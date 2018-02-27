@@ -1,5 +1,6 @@
 .textoResaltado {
-    background-color: yellow;
+    background-color: dodgerblue;
+    color:white;
 }
 .error {
     color: red;
